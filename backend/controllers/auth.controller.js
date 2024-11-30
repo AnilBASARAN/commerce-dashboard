@@ -1,4 +1,4 @@
-//import { redis } from "../lib/redis.js";
+import { redis } from "../lib/redis.js";
 import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 
@@ -15,7 +15,7 @@ const generateTokens = (userId) => {
 };
 
 const storeRefreshToken = async (userId, refreshToken) => {
-	//await redis.set(`refresh_token:${userId}`, refreshToken, "EX", 7 * 24 * 60 * 60); // 7days
+	await redis.set(`refresh_token:${userId}`, refreshToken, "EX", 7 * 24 * 60 * 60); // 7days
 };
 
 const setCookies = (res, accessToken, refreshToken) => {
@@ -50,12 +50,14 @@ export const signup = async (req, res) => {
 		setCookies(res, accessToken, refreshToken);
 
 		res.status(201).json({
+			user:{
 			_id: user._id,
 			name: user.name,
 			email: user.email,
 			role: user.role,
-		});
-		//this part is
+		},
+		message:"User created successfully"
+	});
 	} catch (error) {
 		console.log("Error in signup controller", error.message);
 		res.status(500).json({ message: error.message });
