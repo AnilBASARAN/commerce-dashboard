@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 dotenv.config(); // At the top of your index.js or server.js
 const app = express();
 app.use(express.json()); // allows us to parse imcoming requests:req.body
-
+app.use(cookieParser());
 const PORT = process.env.PORT || 3000 ;
 
 app.use("/api/auth",authRoutes)

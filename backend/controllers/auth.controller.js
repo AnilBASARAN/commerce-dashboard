@@ -50,6 +50,7 @@ export const signup = async (req, res) => {
 		setCookies(res, accessToken, refreshToken);
 
 		res.status(201).json({
+			success:true,
 			user:{
 			_id: user._id,
 			name: user.name,
@@ -74,18 +75,22 @@ export const login = async (req, res) => {
 			await storeRefreshToken(user._id, refreshToken);
 			setCookies(res, accessToken, refreshToken);
 
-			res.json({
+			res.status(200).json({
+				success: true,
+				user:{
 				_id: user._id,
 				name: user.name,
 				email: user.email,
 				role: user.role,
+				},
+				message:"User logged in successfully"
 			});
 		} else {
-			res.status(400).json({ message: "Invalid email or password" });
+			res.status(400).json({success:false, message: "Invalid email or password" });
 		}
 	} catch (error) {
 		console.log("Error in login controller", error.message);
-		res.status(500).json({ message: error.message });
+		res.status(500).json({success:false, message: error.message });
 	}
 };
 
@@ -99,7 +104,7 @@ export const logout = async (req, res) => {
 
 		res.clearCookie("accessToken");
 		res.clearCookie("refreshToken");
-		res.json({ message: "Logged out successfully" });
+		res.status(200).json({success: true, message: "Logged out successfully" });
 	} catch (error) {
 		console.log("Error in logout controller", error.message);
 		res.status(500).json({ message: "Server error", error: error.message });
@@ -145,3 +150,5 @@ export const getProfile = async (req, res) => {
 		res.status(500).json({ message: "Server error", error: error.message });
 	}
 };
+
+
