@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/",protectRoute,adminRoute,getAllProducts,getFeaturedProducts,getProductsByCategory)
 router.get("/featured",getFeaturedProducts)
-router.get("/category/:categoryId",getProductsByCategory)
+router.get("/category/:category",getProductsByCategory)
 router.get("/recommendations",getRecommendedProducts)
 router.post("/",protectRoute,adminRoute,createProduct);
 router.delete("/:id",protectRoute,adminRoute,deleteProduct);
