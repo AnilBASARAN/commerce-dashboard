@@ -36,6 +36,7 @@ const setCookies = (res, accessToken, refreshToken) => {
 export const signup = async (req, res) => {
 	const { email, password, name } = req.body;
 	try {
+		if(!email || !password || !name)  return res.status(400).json({ message: "Fill all the fields" });
 		const userExists = await User.findOne({ email });
 
 		if (userExists) {
@@ -68,6 +69,7 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
 	try {
 		const { email, password } = req.body;
+		if(!email || !password)  return res.status(400).json({ message: "Fill all the fields" });
 		const user = await User.findOne({ email });
 
 		if (user && (await user.comparePassword(password))) {
@@ -147,6 +149,7 @@ export const getProfile = async (req, res) => {
 	try {
 		res.json(req.user);
 	} catch (error) {
+		console.log("Error in getting profile",error.message)
 		res.status(500).json({ message: "Server error", error: error.message });
 	}
 };
