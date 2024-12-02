@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js"
 import productRoutes from "./routes/product.routes.js"
 import cartRoutes from "./routes/cart.routes.js"
+import couponRoutes from "./routes/coupon.routes.js"
 import { connectDB } from "./DB/connectionDB.js";
 import cookieParser from "cookie-parser";
 
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 3000 ;
 app.use("/api/auth",authRoutes)
 app.use("/api/products",productRoutes)
 app.use("/api/cart",cartRoutes)
+app.use("/api/coupon",couponRoutes)
 
 
 app.listen(PORT,()=>{
