@@ -1,13 +1,19 @@
 
+import { Route, Routes } from 'react-router-dom'
 import './index.css'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import SignUpPage from './pages/SignUpPage'
 
 function App() {
  
 //am back
   return (
-   <div className='flex items-center justify-center h-screen '>
-    <h1 className='text-5xl text-green-500'>Hello</h1>
-    </div>
+  <Routes>
+    <Route path='/' element={<HomePage />} />
+    <Route path='/signup' element={<SignUpPage/>} />
+    <Route path='login' element={<LoginPage />} />
+  </Routes>
   )
 }
 
