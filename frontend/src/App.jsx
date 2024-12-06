@@ -5,9 +5,11 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import Navbar from './components/Navbar'
+import { Toaster } from "react-hot-toast";
+import { useUserStore } from './stores/useUserStore'
 
 function App() {
- const user = false;
+ const {user} = useUserStore();
 //am back
   return (
     <div className='min-h-screen bg-gray-900 text-white relative overflow-hidden'>
@@ -30,6 +32,7 @@ function App() {
        
    
     </div>
+    <Toaster />
     </div>
 
   )

@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post("/login",login)
 router.post("/logout",logout)
-router.post("/signup",signup)
+router.post("/sign-up",signup)
 router.post("/refresh-token",refreshToken)
 router.post("/profile",getProfile)
 

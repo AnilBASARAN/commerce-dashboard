@@ -1,4 +1,4 @@
-
+import { useEffect } from "react";
 
 const categories = [
 	{ href: "/jeans", name: "Jeans", imageUrl: "/jeans.jpg" },
@@ -10,11 +10,8 @@ const categories = [
 	{ href: "/bags", name: "Bags", imageUrl: "/bags.jpg" },
 ];
 
-const products = [];
-
 const HomePage = () => {
-
-
+	
 
 	return (
 		<div className='relative min-h-screen text-white overflow-hidden'>
@@ -26,14 +23,7 @@ const HomePage = () => {
 					Discover the latest trends in eco-friendly fashion
 				</p>
 
-				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-					{categories.map((category) => (
-						<CategoryItem category={category} key={category.name} />
-					))}
-				</div>
-
-				{!isLoading && products.length > 0 && <FeaturedProducts featuredProducts={products} />}
-			</div>
+				</div>	
 		</div>
 	);
 };
