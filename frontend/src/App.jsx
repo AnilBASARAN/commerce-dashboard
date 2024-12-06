@@ -7,9 +7,17 @@ import SignUpPage from './pages/SignUpPage'
 import Navbar from './components/Navbar'
 import { Toaster } from "react-hot-toast";
 import { useUserStore } from './stores/useUserStore'
+import { useEffect } from 'react'
+import LoadingSpinner from './components/LoadingSpinner'
 
 function App() {
- const {user} = useUserStore();
+  const { user, checkAuth, checkingAuth } = useUserStore();
+  console.log("user:",user);
+ useEffect(()=>{
+  checkAuth();
+ },[checkAuth]);
+
+ if(checkingAuth) return <LoadingSpinner />
 //am back
   return (
     <div className='min-h-screen bg-gray-900 text-white relative overflow-hidden'>

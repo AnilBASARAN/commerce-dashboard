@@ -149,9 +149,13 @@ export const getProfile = async (req, res) => {
 	try {
 		res.json(req.user);
 	} catch (error) {
-		console.log("Error in getting profile",error.message)
 		res.status(500).json({ message: "Server error", error: error.message });
 	}
 };
 
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzUyNzdiODlkNmFjMTM5Mzg3NmFkNzQiLCJpYXQiOjE3MzM0NjUwODgsImV4cCI6MTczNDA2OTg4OH0._st9xoHRZC3gZsV9qWJm85P9M4Csp4BBlKzGS_GihAo
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzUyNzdiODlkNmFjMTM5Mzg3NmFkNzQiLCJpYXQiOjE3MzM0NjUwODgsImV4cCI6MTczNDA2OTg4OH0._st9xoHRZC3gZsV9qWJm85P9M4Csp4BBlKzGS_GihAo
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzUyNzdiODlkNmFjMTM5Mzg3NmFkNzQiLCJpYXQiOjE3MzM0NjUwODgsImV4cCI6MTczMzQ2NTk4OH0.9P5BPm6i14VG5L0lG088puhq6-CxdX6vg3E3KTR4enA
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzUyNzdiODlkNmFjMTM5Mzg3NmFkNzQiLCJpYXQiOjE3MzM0NjUwODgsImV4cCI6MTczMzQ2NTk4OH0.9P5BPm6i14VG5L0lG088puhq6-CxdX6vg3E3KTR4enA
 

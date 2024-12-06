@@ -4,13 +4,11 @@ import { useUserStore } from "../stores/useUserStore";
 
 
 const Navbar = () => {
-	const {user} = useUserStore();
+	const {user,logout} = useUserStore();
 	
     const cart =["a","b"];
-    const isAdmin = true;
-    const logout=()=>{
-
-    }
+    const isAdmin = user?.role === "admin";
+ 
 
 	return (
 		<header className='fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-md shadow-lg z-40 transition-all duration-300 border-b border-emerald-800'>
@@ -93,3 +91,4 @@ const Navbar = () => {
 	);
 };
 export default Navbar;
+
