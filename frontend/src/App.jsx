@@ -7,7 +7,7 @@ import SignUpPage from './pages/SignUpPage'
 import Navbar from './components/Navbar'
 
 function App() {
- const user = true;
+ const user = false;
 //am back
   return (
     <div className='min-h-screen bg-gray-900 text-white relative overflow-hidden'>
@@ -22,7 +22,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/signup' element={!user ? <SignUpPage /> : <Navigate to='/' />} />
+        <Route path='/sign-up' element={!user ? <SignUpPage /> : <Navigate to='/' />} />
         <Route path='/login' element={!user ? <LoginPage /> : <Navigate to='/' />} />
       </Routes>
 
