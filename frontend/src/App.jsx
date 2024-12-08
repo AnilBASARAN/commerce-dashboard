@@ -35,7 +35,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/sign-up' element={!user ? <SignUpPage /> : <Navigate to='/' />} />
         <Route path='/login' element={!user ? <LoginPage /> : <Navigate to='/' />} />
-        <Route path='/secret-dashboard' element={user.role === "admin" ? <AdminPage /> : <Navigate to='/login' />} />
+        <Route path='/secret-dashboard' element={user?.role === "admin" ? <AdminPage /> : <Navigate to='/login' />} />
       </Routes>
 
        
