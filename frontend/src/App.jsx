@@ -32,6 +32,7 @@ function App() {
     <div className='relative z-50 pt-20'>
       <Navbar />
       <Routes>
+        {/* this question marks helps us navigate to homepage if the user isn't authenticated */}
         <Route path='/' element={<HomePage />} />
         <Route path='/sign-up' element={!user ? <SignUpPage /> : <Navigate to='/' />} />
         <Route path='/login' element={!user ? <LoginPage /> : <Navigate to='/' />} />
