@@ -33,6 +33,7 @@ function App() {
       <Navbar />
       <Routes>
         {/* this question marks helps us navigate to homepage if the user isn't authenticated */}
+        {/* instead of navigate we can use completely different component, that also would work */}
         <Route path='/' element={<HomePage />} />
         <Route path='/sign-up' element={!user ? <SignUpPage /> : <Navigate to='/' />} />
         <Route path='/login' element={!user ? <LoginPage /> : <Navigate to='/' />} />
